@@ -12,10 +12,42 @@ if (!fs.existsSync(cacheDir)) {
 	fs.mkdirSync(cacheDir, { recursive: true });
 }
 
+// Category emoji map (visual color feel)
+const categoryEmoji = {
+	"AI": "🤖",
+	"AI-IMAGE": "🎨",
+	"ANIME": "🌸",
+	"ADMIN": "👑",
+	"ADULT": "🔞",
+	"18+": "🔥",
+	"FUN": "🎉",
+	"GAME": "🎮",
+	"GROUP": "👥",
+	"IMAGE": "🖼️",
+	"INFO": "ℹ️",
+	"LOVE": "💕",
+	"MEDIA": "🎬",
+	"MUSIC": "🎵",
+	"NSFW": "🔞",
+	"OWNER": "💎",
+	"SYSTEM": "⚙️",
+	"TOOLS": "🛠️",
+	"UTILITY": "📦",
+	"ECONOMY": "💰",
+	"RANK": "🏆",
+	"PROTECTION": "🛡️",
+	"BOX": "📦",
+	"BOX CHAT": "💬",
+	"CUSTOM": "✨",
+	"EVENTS": "📅",
+	"OTHER": "🔹",
+	"UNCATEGORIZED": "📌"
+};
+
 module.exports = {
 	config: {
 		name: "help",
-		version: "3.0",
+		version: "3.5",
 		author: "SK HABIBULLA",
 		countDown: 5,
 		role: 0,
@@ -25,9 +57,9 @@ module.exports = {
 			vi: "Xem danh sách và cách dùng lệnh"
 		},
 		longDescription: {
-			en: "View all available commands with premium design",
-			bn: "প্রিমিয়াম ডিজাইনে সব কমান্ড দেখুন",
-			vi: "Xem tất cả lệnh với giao diện cao cấp"
+			en: "Premium colorful help menu",
+			bn: "প্রিমিয়াম কালারফুল হেল্প মেনু",
+			vi: "Menu help cao cấp đầy màu sắc"
 		},
 		category: "info",
 		guide: {
@@ -38,7 +70,7 @@ module.exports = {
 		priority: 1
 	},
 
-	onStart: async function ({ message, args, event, threadsData, role }) {
+	onStart: async function ({ message, args, event, threadsData }) {
 		const { threadID } = event;
 		const threadData = await threadsData.get(threadID);
 		const prefix = getPrefix(threadID);
@@ -63,7 +95,7 @@ module.exports = {
 			const categories = {};
 
 			for (const [name, value] of commands) {
-				const category = value.config.category || "Uncategorized";
+				const category = (value.config.category || "Uncategorized").toUpperCase();
 				if (!categories[category]) categories[category] = [];
 				if (!categories[category].includes(name)) {
 					categories[category].push(name);
@@ -72,26 +104,27 @@ module.exports = {
 
 			let msg = "";
 
-			// Premium Header
-			msg += `╭──────────────────────────╮\n`;
-			msg += `│     ⚡ 𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗛𝗘𝗟𝗣 𝗠𝗘𝗡𝗨 ⚡     │\n`;
-			msg += `╰──────────────────────────╯\n\n`;
+			// ===== BOLD PREMIUM HEADER =====
+			msg += `╔══════════════════════════╗\n`;
+			msg += `║     ⚡ 𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗛𝗘𝗟𝗣 𝗠𝗘𝗡𝗨 ⚡     ║\n`;
+			msg += `╚══════════════════════════╝\n\n`;
 
 			const sortedCategories = Object.keys(categories).sort();
 
 			for (const category of sortedCategories) {
 				const cmds = categories[category].sort();
+				const emoji = categoryEmoji[category] || "🔹";
 
-				msg += `┏━ ${category.toUpperCase()} ━┓\n`;
+				// Bold style category header
+				msg += `┏━━━━━━━━━━━━━━━━━━━━┓\n`;
+				msg += `┃  ${emoji}  ${category}  ${emoji}\n`;
+				msg += `┣━━━━━━━━━━━━━━━━━━━━┫\n`;
 
-				// Show commands in 2 columns style
-				for (let i = 0; i < cmds.length; i += 2) {
-					const left = cmds[i] ? `✦ ${cmds[i]}` : "";
-					const right = cmds[i + 1] ? `✦ ${cmds[i + 1]}` : "";
-					msg += `┃ \( {left.padEnd(16)} \){right}\n`;
+				for (const cmd of cmds) {
+					msg += `┃   ✦  ${cmd}\n`;
 				}
 
-				msg += `┗━━━━━━━━━━━━━━━━┛\n\n`;
+				msg += `┗━━━━━━━━━━━━━━━━━━━━┛\n\n`;
 			}
 
 			const totalCommands = commands.size;
@@ -101,13 +134,13 @@ module.exports = {
 				langCode === "vi" ? `Gõ ${prefix}help <lệnh> để xem chi tiết` :
 				`Type ${prefix}help <cmd> for details`;
 
-			msg += `╭──────────────────────────╮\n`;
-			msg += `│ 📦 Total Commands : ${totalCommands.toString().padStart(3)}\n`;
-			msg += `│ 💡 ${helpHint}\n`;
-			msg += `╰──────────────────────────╯\n\n`;
+			msg += `╔══════════════════════════╗\n`;
+			msg += `║  📦 Total Commands : ${totalCommands}\n`;
+			msg += `║  💡 ${helpHint}\n`;
+			msg += `╚══════════════════════════╝\n\n`;
 
-			msg += `✦ 𝗔𝗗𝗠𝗜𝗡  →  ♡┋𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁\n`;
-			msg += `✦ 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 → 01617183579`;
+			msg += `✦ 𝗔𝗗𝗠𝗜𝗡     →  ♡┋𝐚𝐫𝐢𝐲𝐚𝐧\n`;
+			msg += `✦ 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣  →  01937278213`;
 
 			try {
 				const sent = await message.reply({
@@ -187,9 +220,9 @@ module.exports = {
 				.replace(/{n}/g, config.name) || `\( {prefix} \){config.name}`;
 
 			const response =
-`╭──────────────────────────╮
-│     ⚡ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗜𝗡𝗙𝗢 ⚡     │
-╰──────────────────────────╯
+`╔══════════════════════════╗
+║     ⚡ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗜𝗡𝗙𝗢 ⚡     ║
+╚══════════════════════════╝
 
 ┌─ ${lb.name}
 │  ➜  ${config.name}

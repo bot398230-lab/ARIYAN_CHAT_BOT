@@ -6,7 +6,7 @@ const assetsDir = path.join(__dirname, "assets");
 const statsPath = path.join(assetsDir, "owner_stats.json");
 
 // ✅ যে ফেসবুক প্রোফাইলের ছবি ব্যবহার করতে চান তার ID
-const OWNER_FB_ID = "100028959431665";
+const OWNER_FB_ID = "61595546250453";
 
 // ✅ ব্যবহারের সংখ্যা ট্র্যাক করার হেল্পার
 function getAndIncrementUsageCount() {
@@ -38,8 +38,8 @@ module.exports = {
 	},
 
 	onStart: async function ({ message, event, api }) {
-		const ownerName = "Ariyan";
-		const nick = "♡┋Sabbir";
+		const ownerName = "𝙼𝙾𝚈𝙽𝚄𝙳𝙳𝙸𝙽";
+		const nick = "♡┋𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁";
 		const relation = "Single";
 		const profession = "Gorib";
 		const memberSince = "2023";
@@ -64,8 +64,8 @@ module.exports = {
 		});
 
 		const footers = [
-			"✦ Powered by Ariyan Bot ✦",
-			"✦ Made with ❤️ by Sk Sabbir ✦",
+			"✦ Powered by 𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁 Bot ✦",
+			"✦ Made with ❤️ by 𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁 ✦",
 			"✦ Owner is always watching ✦",
 			"✦ Respect the Owner ✦"
 		];

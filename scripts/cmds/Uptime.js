@@ -29,11 +29,11 @@ module.exports = {
     const ping = Date.now() - start;
 
     const msg = `
-╔══ ♡┋ 𝙋𝙊𝙊𝙆𝙄𝙀 ᥫ᭡🎀🙂❀══╗
+╔══ ♡┋ 𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁 ᥫ᭡🎀🙂❀══╗
 
-🤖 Bot:  ♡┋ 𝙋𝙊𝙊𝙆𝙄𝙀 ᥫ᭡🎀🙂
+🤖 Bot:  ♡┋ 𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁 ᥫ᭡🎀🙂
 
-👑 Owner: 〲MAMUNツ࿐ T.T　o.O
+👑 Owner: 〲𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁ツ࿐ T.T　o.O
 
 ⏰ Uptime: ${d}d ${h}h ${m}m ${s}s
 
@@ -45,7 +45,7 @@ module.exports = {
 
 📡 Platform: ${os.platform()}
 
-╚══ ♡┋ 𝙋𝙊𝙊𝙆𝙄𝙀 ᥫ᭡🎀🙂❀══╝
+╚══ ♡┋ 𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁 ᥫ᭡🎀🙂❀══╝
 `;
 
     message.reply(msg);

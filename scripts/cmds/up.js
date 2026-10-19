@@ -19,9 +19,9 @@ const PROTECTED_AUTHOR = "ARIYAN AHMED SABBIR";
 // ==========================================
 // ⚙️ EDITABLE BOT INFORMATION
 // ==========================================
-const BOT_NAME = "𝗔𝗥𝗜𝗬𝗔𝗡 𝗖𝗛𝗔𝗧 𝗕𝗢𝗧";
-const OWNER_NAME = "𝗔𝗥𝗜𝗬𝗔𝗡 𝗦𝗔𝗕𝗕𝗜𝗥";
-const POWERED_BY = "ARIYAN SABBIR";
+const BOT_NAME = "𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁 𝗕𝗢𝗧";
+const OWNER_NAME = "𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁";
+const POWERED_BY = "𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁";
 
 // ==========================================
 // 🎨 COLORS
@@ -341,8 +341,7 @@ module.exports = {
 🇧🇩 ${bdTime}
 
 ✧━━━━━━━━━━━━━━━━━━━━✧
-⚡ Powered by 𝗔𝗥𝗜𝗬𝗔𝗡 𝗦𝗔𝗕𝗕𝗜𝗥
-✧━━━━━━━━━━━━━━━━━━━━✧`;
+⚡ Powered by 𝙈𝙞𝙧𝙟𝙖𝙛𝙤𝙧✧━━━━━━━━━━━━━━━━━━━━✧`;
 
       // ====================================
       // 📤 SEND
@@ -382,7 +381,7 @@ module.exports = {
     } catch (e) {
 
       console.error(
-        "UP COMMAND ERROR:",
+        "UP COMMAND 𝙀𝙍𝙍𝙊𝙍 𝙥𝙡𝙯 𝙘𝙤𝙣𝙩𝙧𝙖𝙘𝙩 𝙼𝙸𝚁𝙹𝙰𝙵𝙾𝚁",
         e
       );
 
